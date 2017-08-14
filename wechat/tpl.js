@@ -8,13 +8,13 @@ var tpl = hereDoc(function () {
      <xml>
      <ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
      <FromUserName><![CDATA[<%= fromUserName %>]]></FromUserName>
-     <CreateTime><% createTime %></CreateTime>
+     <CreateTime><%= createTime %></CreateTime>
      <MsgType><![CDATA[<%= msgType  %>]]></MsgType>
      <% if (msgType === 'text') { %>
        <Content><![CDATA[<%= content %>]]></Content>
      <% } else if (msgType === 'image') { %>
        <Image>
-       <MediaId><![CDATA[<%= mediaId %>]]></MediaId>
+       <MediaId><![CDATA[<%= content.mediaId %>]]></MediaId>
        </Image>
      <% } else if (msgType === 'voice') { %>
        <Voice>
@@ -35,7 +35,7 @@ var tpl = hereDoc(function () {
        <ThumbMediaId><![CDATA[<%= thumbMediaId %>]]></ThumbMediaId>
        </Music>
      <% } else if (msgType === 'news') { %>
-        <ArticleCount><% content.length %></ArticleCount>
+        <ArticleCount><%= content.length %></ArticleCount>
         <Articles>
      <% content.forEach(function(item) { %>
         <item>

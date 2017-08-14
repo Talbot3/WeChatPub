@@ -56,14 +56,14 @@ exports.tpl = function (content,message) {
         type = 'news'
     }
 
-    type = message.MsgType || type
+    type = content.type || type
 
     info.content = content;
     info.createTime = new Date().getTime()
     info.msgType = type
     info.toUserName = fromUsername
     info.fromUserName = toUserName
-    console.log("定稿",info)
+    console.log(info)
     return tpl.compiled(info);
 };
 

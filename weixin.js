@@ -64,6 +64,23 @@ exports.reply = function*(next) {
                 type:'image',
                 mediaId:data.media_id
             }
+        }else if(content === '6'){
+            var data  = yield wechatApi.uploadMaterial('video',__dirname+'/6.mp4')
+            reply  = {
+                type:'video',
+                title:'打个篮球球玩',
+                description:'放松一下',
+                mediaId:data.media_id
+            }
+        }else if(content === '7'){
+            var data = yield wechatApi.uploadMaterial('image',__dirname+'/2.jpg');
+            reply  = {
+                type:'music',
+                title:'回复音乐内容',
+                description:'放松一下',
+                musicUrl:'http://ouo7dina6.bkt.clouddn.com/7.mp3',
+                thumbMediaId:data.media_id,
+            }
         }
         console.log(reply)
         this.body = reply;

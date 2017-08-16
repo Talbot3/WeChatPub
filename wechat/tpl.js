@@ -20,19 +20,19 @@ var tpl = hereDoc(function () {
        <Voice>
        <MediaId><![CDATA[<%= mediaId %>]]></MediaId>
        </Voice>
-     <% } else if (msgType === 'media') { %>
+     <% } else if (msgType === 'video') { %>
        <Video>
-       <MediaId><![CDATA[<%= mediaId %>]]></MediaId>
-       <Title><![CDATA[<%= title %>]]></Title>
-       <Description><![CDATA[<%= description %>]]></Description>
+       <MediaId><![CDATA[<%= content.mediaId %>]]></MediaId>
+       <Title><![CDATA[<%= content.title %>]]></Title>
+       <Description><![CDATA[<%= content.description %>]]></Description>
        </Video>
      <% } else if (msgType === 'music') { %>
        <Music>
-       <Title><![CDATA[<%= title %>]]></Title>
-       <Description><![CDATA[<%= description %>]]></Description>
-       <MusicUrl><![CDATA[<%= musicUrl %>]]></MusicUrl>
-       <HQMusicUrl><![CDATA[<%= hqMusicUrl %>]]></HQMusicUrl>
-       <ThumbMediaId><![CDATA[<%= thumbMediaId %>]]></ThumbMediaId>
+       <Title><![CDATA[<%= content.title %>]]></Title>
+       <Description><![CDATA[<%= content.description %>]]></Description>
+       <MusicUrl><![CDATA[<%= content.musicUrl %>]]></MusicUrl>
+       <HQMusicUrl><![CDATA[<%= content.hqMusicUrl %>]]></HQMusicUrl>
+       <ThumbMediaId><![CDATA[<%= content.thumbMediaId %>]]></ThumbMediaId>
        </Music>
      <% } else if (msgType === 'news') { %>
         <ArticleCount><%= content.length %></ArticleCount>
